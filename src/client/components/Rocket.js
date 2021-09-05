@@ -95,7 +95,7 @@ const Rocket__ = (props) => {
     display: flex;
     width: ${PlaneImageWidth}px;
   `;
-  const [rocketContainerWidth, setRocketContainerWidth] = useState(500);
+
   const multiAnimation = useSpring({
     config: {
       clamp: true,
@@ -104,7 +104,7 @@ const Rocket__ = (props) => {
     loop: true,
     from: { x: window.innerWidth },
     to: [
-      { x: -rocketContainerWidth },
+      { x: -(message.length * 24 + 12 + 12 + PlaneImageWidth) },
     ]
   });
 
@@ -120,9 +120,9 @@ const Rocket__ = (props) => {
   };
 
   return (<>
-    <animated.div style={enableAnimation ? {...multiAnimation, ...commonStyle} : commonStyle}>
+    <animated.div style={enableAnimation ? { ...multiAnimation, ...commonStyle } : commonStyle}>
       <RocketImage src={rocket09} />
-      <Banner message={message}/>
+      <Banner message={message} />
       {/* <div>{message}</div> */}
     </animated.div>
   </>);
