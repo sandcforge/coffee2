@@ -19,7 +19,7 @@ const Background = styled.img`
 
 export const Admin = (props) => {
   return (<Container id='container'>
-    <Rocket index={2} message={'1 叶黄素 叶黄素'} />
+    <Rocket index={2} message={'1 叶黄素 叶黄素'} enableAnimation={false}/>
     <Background src={backgroundDay} />
   </Container>);
 };

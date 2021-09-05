@@ -88,6 +88,7 @@ const Rocket__ = (props) => {
   const {
     message, // Banner message
     index,
+    enableAnimation = true,
   } = props;
   const PlaneImageWidth = 300;
   const RocketImage = styled.img`
@@ -119,7 +120,7 @@ const Rocket__ = (props) => {
   };
 
   return (<>
-    <animated.div style={{...multiAnimation, ...commonStyle}}>
+    <animated.div style={enableAnimation ? {...multiAnimation, ...commonStyle} : commonStyle}>
       <RocketImage src={rocket09} />
       <Banner message={message}/>
       {/* <div>{message}</div> */}
