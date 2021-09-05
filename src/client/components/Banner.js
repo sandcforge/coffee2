@@ -41,13 +41,13 @@ export const Banner = (props) => {
   `;
 
   return (<Container>
-    <BannerHeaderTailer src={bannerTailer} />
+    <BannerHeaderTailer src={bannerHeader} />
     {[...message].map((c, i) => <BannerCharContainer key={i}>
       <BannerBodyBorder src={bannerBody} />
       <BannerChar>{c}</BannerChar>
       <BannerBodyBorder src={bannerBody} />
     </BannerCharContainer>
     )}
-    <BannerHeaderTailer src={bannerHeader} />
+    <BannerHeaderTailer src={bannerTailer} />
   </Container>);
 };

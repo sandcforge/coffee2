@@ -89,48 +89,12 @@ const Rocket__ = (props) => {
     message, // Banner message
     index,
   } = props;
-  console.log(message);
-  // const RocketContainerHeight = 300;
-
-  // const DummyBanner = styled.div`
-  //   color: red;
-  //   visibility: hidden;
-  //   white-space:pre-wrap;
-  //   flex-wrap: nowrap;
-  //   font-size: 25px;
-  // `;
-
-  // const Banner = styled.div`
-  //   display: flex;
-  //   flex-direction:row;
-  //   white-space:pre-wrap;
-  //   flex-wrap: nowrap;
-  //   font-size: 25px;
-  // `;
-
-
-
-
-
-  // const bannerRef = useRef(null);
-  // useEffect(() => {
-  //   if (bannerRef.current) {
-  //     const bannerWidth = bannerRef.current.offsetWidth;
-  //     setRocketContainerWidth(bannerWidth);
-  //     console.log(bannerWidth);
-  //   }
-  // }, [message]);
-
   const PlaneImageWidth = 300;
-
   const RocketImage = styled.img`
     display: flex;
     width: ${PlaneImageWidth}px;
   `;
-
   const [rocketContainerWidth, setRocketContainerWidth] = useState(500);
-
-
   const multiAnimation = useSpring({
     config: {
       clamp: true,
@@ -156,9 +120,9 @@ const Rocket__ = (props) => {
 
   return (<>
     <animated.div style={{...multiAnimation, ...commonStyle}}>
-      {/* <Banner message={message}/> */}
       <RocketImage src={rocket09} />
-      <div>{message}</div>
+      <Banner message={message}/>
+      {/* <div>{message}</div> */}
     </animated.div>
   </>);
 };
