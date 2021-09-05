@@ -11,11 +11,24 @@ const Background_ = () => {
     100% {opacity:1;}
   `;
 
-  const Wrapper = styled.img`
+  const fadOut = keyframes`
+    0% {opacity:1;}
+    100% {opacity:0;}
+  `;
+  const FadeIn = styled.img`
     position: fixed;
     width: 100%;
     height: 100%;
     animation: ${fadeIn} 1s;
+    animation-fill-mode: forwards;
+  `;
+
+  const FadeOut = styled.img`
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    animation: ${fadOut} 1s;
+    animation-fill-mode: forwards;
   `;
 
   const Cloud1 = styled.img`
@@ -32,16 +45,30 @@ const Background_ = () => {
     z-index: 100;
   `;
 
-  const [backgroundImage, setBackgroundImage] = useState('day');
+  const [timePeriod, setTimePeriod] = useState('day');
 
   useInterval(() => {
-    setBackgroundImage(backgroundImage === 'day' ? 'night' : 'day');
+    setTimePeriod(timePeriod === 'day' ? 'night' : 'day');
   }, 10000);
 
+  const renderBackgroundImage = () => {
+    if (timePeriod === 'day') {
+      return (<>
+        <FadeIn src={backgroundDay} />
+        <FadeOut src={backgroundNight} />
+      </>);
+    }
+    else {
+      return (<>
+        <FadeOut src={backgroundDay} />
+        <FadeIn src={backgroundNight} />
+      </>)
+    };
+  };
   return (<>
-    <Wrapper src={backgroundImage === 'day' ? backgroundDay : backgroundNight} />
-    <Cloud1 src={cloud}/>
-    <Cloud2 src={cloud}/>
+    {renderBackgroundImage()}
+    <Cloud1 src={cloud} />
+    <Cloud2 src={cloud} />
   </>);
 };
 
